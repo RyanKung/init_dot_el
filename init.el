@@ -5,7 +5,7 @@
 
 (package-initialize)
 (require 'cl)
-(setq debug-on-error t)
+;;(setq debug-on-error t)
 
 
 (defun set-PATH ()
@@ -17,14 +17,14 @@
 
 (setq my:el-get-packages
       '(el-get
-;;	evil
+	evil
 	session
 	nyan-mode
 	elm-mode
 	company
 	mode-icons
 	ace-jump-mode
-	emacs-w3m
+;;	emacs-w3m
 	neotree
 	minimap
 	gtags
@@ -125,6 +125,8 @@
   ;;  (define-key ac-completing-map "\C-n" 'ac-next)
   ;;  (define-key ac-completing-map "\C-p" 'ac-previous)
   ;;  (global-set-key "\t" 'company-complete-common)
+  (global-set-key (kbd "M-p") 'tabbar-ruler-forward)
+  (global-set-key (kbd "M-n") 'tabbar-ruler-backward)
   (global-set-key [C-tab] 'other-window)
   (global-set-key (kbd "C-o") 'other-frame)
   (global-set-key (kbd "C-/") 'undo)
@@ -213,11 +215,8 @@ config detail settings"
       (setq alpha-list (cdr (append alpha-list (list h))))))
 
   (global-linum-mode t)
-  ;;  (setq linum-format 'linum-relative)
-  ;;  (linum-relative-toggle)
   (fset 'yes-or-no-p 'y-or-n-p)
-;;  (desktop-save-mode t)
-  ;; ;;(session-use-package t nil (session))
+  (desktop-save-mode t)
   (setq tabbar-ruler-global-tabbar t)    ; get tabbar
   (setq tabbar-ruler-global-ruler nil)     ; get global ruler
   (setq tabbar-ruler-popup-menu t)       ; get popup menu.
@@ -245,7 +244,6 @@ config detail settings"
   (whitespace-cleanup-mode 1)
   (require 'neotree)
   (setq neo-window-width 28)
-  ;;(global-auto-complete-mode 0)
   (add-to-list 'auto-mode-alist '("\\.mkd" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
@@ -331,3 +329,17 @@ config detail settings"
 (config-org-mode)
 (provide 'init)
 ;;; init.el ends here
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(cua-mode t nil (cua-base))
+ '(scroll-bar-mode nil)
+ '(show-paren-mode t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
