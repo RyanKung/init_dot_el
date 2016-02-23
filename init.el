@@ -2,8 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
+
+(package-initialize)
 (require 'cl)
-;;; (setq debug-on-error t)
+(setq debug-on-error t)
 
 
 (defun set-PATH ()
@@ -15,13 +17,13 @@
 
 (setq my:el-get-packages
       '(el-get
+;;	evil
 	session
 	nyan-mode
 	elm-mode
 	company
 	mode-icons
 	ace-jump-mode
-	solarized-theme
 	emacs-w3m
 	neotree
 	minimap
@@ -41,6 +43,7 @@
 	ack
 	linum-relative
 	monokai-theme
+	dash
 	powerline
 	git-emacs
 	popup
@@ -49,7 +52,6 @@
 	haskell-mode
 	smooth-scrolling
 	flycheck
-	evil
 	diminish
 	elpy
 	whitespace-cleanup-mode
@@ -173,7 +175,6 @@ config detail settings"
   "Config guis."
 
   (make-face 'speedbar-face)
-  (set-face-font 'speedbar-face "DejaVu Sans Mono-11")
   (setq speedbar-use-images nil)
   (global-visual-line-mode 1)
   (nyan-mode t)
@@ -215,7 +216,7 @@ config detail settings"
   ;;  (setq linum-format 'linum-relative)
   ;;  (linum-relative-toggle)
   (fset 'yes-or-no-p 'y-or-n-p)
-  (desktop-save-mode t)
+;;  (desktop-save-mode t)
   ;; ;;(session-use-package t nil (session))
   (setq tabbar-ruler-global-tabbar t)    ; get tabbar
   (setq tabbar-ruler-global-ruler nil)     ; get global ruler
@@ -328,20 +329,5 @@ config detail settings"
 (config-evil-mode)
 (config-shells)
 (config-org-mode)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(column-number-mode t)
- '(cua-mode t nil (cua-base))
- '(custom-safe-themes
-   (quote
-    ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
- '(menu-bar-mode nil)
- '(scroll-bar-mode nil)
- '(show-paren-mode t)
- '(tool-bar-mode nil))
-
 (provide 'init)
 ;;; init.el ends here
